@@ -36,8 +36,18 @@ export const
                 icon: FileText,
                 color: 'bg-orange-500',
                 position: { x: 450, y: 350 }
+            },
+            {
+                id: '5',
+                title: 'Configuración',
+                description: 'Gestión de configuraciones',
+                icon: Settings,
+                color: 'bg-blue-500',
+                position: { x: 100, y: 600 }
             }
         ]);
+
+        const [selectedModule, setSelectedModule] = useState(null);
 
         const updatePosition = (id, newPosition) => {
             setCards(prevCards =>
@@ -49,8 +59,20 @@ export const
             console.log(`Card ${id} moved to:`, newPosition);
         };
 
+        const selectModule = (moduleId) => {
+            const module = cards.find(c => c.id === moduleId);
+            setSelectedModule(module);
+        };
+
+        const closeSidebar = () => {
+            setSelectedModule(null);
+        };
+
         return {
             cards,
-            updatePosition
+            updatePosition,
+            selectedModule,
+            selectModule,
+            closeSidebar
         };
     };

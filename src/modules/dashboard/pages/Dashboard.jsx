@@ -1,10 +1,23 @@
 import { useRef } from 'react';
 import { useBoard } from '../hooks/useBoard';
 import { ModuleCard } from '../components/ModuleCard';
+import { OptionSidebar } from '../components/OptionSidebar';
+
+// Import Specific Module Options
+import { TalentoHumanoOptions } from '../../talentoHumano/components/TalentoHumanoOptions';
+import { CalidadOptions } from '../../calidad/components/CalidadOptions';
+import { ConfiguracionOptions } from '../../configuracion/components/ConfiguracionOptions';
 
 const Dashboard = () => {
-    const { cards, updatePosition } = useBoard();
+    const { cards, updatePosition, selectedModule, selectModule, closeSidebar } = useBoard();
     const containerRef = useRef(null);
+
+    // Map Module IDs to their Option Components
+    const OPTIONS_MAP = {
+        '1': TalentoHumanoOptions,
+        '2': CalidadOptions,
+        '5': ConfiguracionOptions,
+    };
 
     return (
         <div ref={containerRef} className="w-full h-full relative overflow-hidden">
@@ -20,9 +33,18 @@ const Dashboard = () => {
                     key={card.id}
                     card={card}
                     onDragEnd={updatePosition}
+                    onClick={selectModule}
                     containerRef={containerRef}
                 />
             ))}
+
+            {/* Sidebar Overlay */}
+            <OptionSidebar
+                isOpen={!!selectedModule}
+                onClose={closeSidebar}
+                selectedModule={selectedModule}
+                OptionsComponent={selectedModule ? OPTIONS_MAP[selectedModule.id] : null}
+            />
         </div>
     );
 };

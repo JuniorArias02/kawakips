@@ -1,15 +1,19 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 
-export const ModuleCard = ({ card, onDragEnd, containerRef }) => {
+export const ModuleCard = ({ card, onDragEnd, onClick, containerRef }) => {
     const Icon = card.icon;
 
     return (
         <motion.div
             drag
             dragConstraints={containerRef}
-            dragMomentum={false} 
+            dragMomentum={false}
             dragElastic={0.1}
+            onDoubleClick={(e) => {
+                e.stopPropagation();
+                if (onClick) onClick(card.id);
+            }}
             initial={{ x: card.position.x, y: card.position.y, opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.02, zIndex: 50, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
