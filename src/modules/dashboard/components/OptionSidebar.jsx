@@ -52,7 +52,7 @@ export const OptionSidebar = ({ isOpen, onClose, selectedModule, OptionsComponen
 
                         {/* Footer */}
                         <div className="p-4 border-t border-slate-100 bg-white text-center text-xs text-slate-300">
-                            Módulo ID: {selectedModule.id}
+                            {/* Módulo ID: {selectedModule.id} */}
                         </div>
                     </motion.div>
                 </>

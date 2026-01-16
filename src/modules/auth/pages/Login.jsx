@@ -93,7 +93,7 @@ const Login = () => {
                             >
                                 <h2 className="text-4xl font-bold mb-4 leading-tight">Gestión Inteligente para tu Clínica</h2>
                                 <p className="text-lg text-blue-100 max-w-md">
-                                    Optimiza el flujo de trabajo y asegura la integridad de la información personal con nuestra plataforma.
+                                    Optimiza el flujo de trabajo y asegura la integridad de la información personal.
                                 </p>
                             </motion.div>
                         ) : (

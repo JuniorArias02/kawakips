@@ -1,8 +1,11 @@
 import { useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useHoverPreview } from '../../../hooks/useHoverPreview';
+import { ConceptMapPreview } from './ConceptMapPreview';
 
-export const ModuleCard = ({ card, onDragEnd, onClick, containerRef }) => {
+export const ModuleCard = ({ card, onDragEnd, onClick, containerRef, options }) => {
     const Icon = card.icon;
+    const { showPreview, handleMouseEnter, handleMouseLeave } = useHoverPreview(3000);
 
     return (
         <motion.div
@@ -14,12 +17,13 @@ export const ModuleCard = ({ card, onDragEnd, onClick, containerRef }) => {
                 e.stopPropagation();
                 if (onClick) onClick(card.id);
             }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             initial={{ x: card.position.x, y: card.position.y, opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={{ x: card.position.x, y: card.position.y, opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.02, zIndex: 50, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
             whileDrag={{ scale: 1.05, zIndex: 100, cursor: 'grabbing', boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)" }}
             onDragEnd={(event, info) => {
-                // Calculate new position relative to current offset
                 const newPosition = {
                     x: card.position.x + info.offset.x,
                     y: card.position.y + info.offset.y
@@ -44,10 +48,19 @@ export const ModuleCard = ({ card, onDragEnd, onClick, containerRef }) => {
 
             <div className="pt-3 border-t border-slate-50 flex items-center justify-between text-xs text-slate-400 font-medium">
                 {/* <span>Actualizado hoy</span> */}
-                <span className="bg-slate-50 px-2 py-1 rounded-md border border-slate-100 group-hover:border-slate-200 transition-colors">
+                {/* <span className="bg-slate-50 px-2 py-1 rounded-md border border-slate-100 group-hover:border-slate-200 transition-colors">
                     ID: {card.id}
-                </span>
+                </span> */}
             </div>
+
+            {/* Desktop Only Preview Map */}
+            <AnimatePresence>
+                {showPreview && options && (
+                    <div className="hidden md:block">
+                        <ConceptMapPreview options={options} title={card.title} />
+                    </div>
+                )}
+            </AnimatePresence>
         </motion.div>
     );
 };
