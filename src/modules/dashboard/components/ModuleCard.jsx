@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useHoverPreview } from '../../../hooks/useHoverPreview';
+import { useRightClickMenu } from '../../../hooks/useRightClickMenu';
 import { ConceptMapPreview } from './ConceptMapPreview';
 
 export const ModuleCard = ({ card, onDragEnd, onClick, containerRef, options }) => {
     const Icon = card.icon;
-    const { showPreview, handleMouseEnter, handleMouseLeave } = useHoverPreview(3000);
+    const { showMenu, handleContextMenu } = useRightClickMenu();
 
     return (
         <motion.div
@@ -17,8 +17,7 @@ export const ModuleCard = ({ card, onDragEnd, onClick, containerRef, options }) 
                 e.stopPropagation();
                 if (onClick) onClick(card.id);
             }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onContextMenu={handleContextMenu}
             initial={{ x: card.position.x, y: card.position.y, opacity: 0, scale: 0.9 }}
             animate={{ x: card.position.x, y: card.position.y, opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.02, zIndex: 50, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
@@ -55,7 +54,7 @@ export const ModuleCard = ({ card, onDragEnd, onClick, containerRef, options }) 
 
             {/* Desktop Only Preview Map */}
             <AnimatePresence>
-                {showPreview && options && (
+                {showMenu && options && (
                     <div className="hidden md:block">
                         <ConceptMapPreview options={options} title={card.title} />
                     </div>
