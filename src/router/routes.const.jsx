@@ -1,5 +1,18 @@
 import ConstructionPage from '../components/ConstructionPage';
+// Talento Humano
 import { PerfilesCargos } from '../modules/talentoHumano/pages/PerfilesCargos';
+import { HojaVida } from '../modules/talentoHumano/pages/HojaVida';
+import { Organigrama } from '../modules/talentoHumano/pages/Organigrama';
+// calidad
+import { TipoDocumentos } from '../modules/calidad/pages/TipoDocumentos';
+import { SolicitarDocumento } from '../modules/calidad/pages/SolicitarDocumento';
+import { RevisionDocumento } from '../modules/calidad/pages/RevisionDocumento';
+import { Reporte } from '../modules/calidad/pages/Reporte';
+import { PapeleraReciclaje } from '../modules/calidad/pages/PapeleraReciclaje';
+import { ListadosUnicos } from '../modules/calidad/pages/ListadosUnicos';
+import { DocumentosExternos } from '../modules/calidad/pages/DocumentosExternos';
+import { DiligenciarFormato } from '../modules/calidad/pages/DiligenciarFormato';
+import { Definiciones } from '../modules/calidad/pages/Definiciones';
 
 export const ROUTES = {
   TALENTO_HUMANO: {
@@ -11,12 +24,12 @@ export const ROUTES = {
     HOJA_VIDA: {
       path: '/talentoHumano/hoja-de-vida',
       title: 'Hoja de Vida',
-      element: <ConstructionPage title="Hoja de Vida" />,
+      element: <HojaVida />,
     },
     ORGANIGRAMA: {
       path: '/talentoHumano/organigrama',
       title: 'Organigrama',
-      element: <ConstructionPage title="Organigrama" />,
+      element: <Organigrama />,
     },
   },
 
@@ -24,47 +37,47 @@ export const ROUTES = {
     TIPOS_DOCUMENTO: {
       path: '/calidad/tipos-documento',
       title: 'Tipos de Documento',
-      element: <ConstructionPage title="Tipos de Documento" />,
+      element: <TipoDocumentos />,
     },
     SOLICITAR_DOCUMENTO: {
       path: '/calidad/solicitar-documento',
       title: 'Solicitar Documento',
-      element: <ConstructionPage title="Solicitar Documento" />,
+      element: <SolicitarDocumento />,
     },
     REVISION_DOCUMENTO: {
       path: '/calidad/revision-documento',
       title: 'Revisión por documento',
-      element: <ConstructionPage title="Revisión por documento" />,
+      element: <RevisionDocumento />,
     },
     REPORTES: {
       path: '/calidad/reportes',
       title: 'Reportes de Calidad',
-      element: <ConstructionPage title="Reportes de Calidad" />,
+      element: <Reporte />,
     },
     PAPELERA: {
       path: '/calidad/papelera-reciclaje',
       title: 'Papelera de Reciclaje',
-      element: <ConstructionPage title="Papelera de Reciclaje" />,
+      element: <PapeleraReciclaje />,
     },
     LISTADO_UNICO: {
       path: '/calidad/listado-unico',
       title: 'Listado Único',
-      element: <ConstructionPage title="Listado Único" />,
+      element: <ListadosUnicos />,
     },
     DOCUMENTOS_EXTERNOS: {
       path: '/calidad/documentos-externos',
       title: 'Documentos Externos',
-      element: <ConstructionPage title="Documentos Externos" />,
+      element: <DocumentosExternos />,
     },
     DILIGENCIAR_FORMATO: {
       path: '/calidad/diligenciar-formato',
       title: 'Diligenciar Formato',
-      element: <ConstructionPage title="Diligenciar Formato" />,
+      element: <DiligenciarFormato />,
     },
     DEFINICIONES: {
       path: '/calidad/definiciones',
       title: 'Definiciones',
-      element: <ConstructionPage title="Definiciones" />,
+      element: <Definiciones />,
     },
   },
 
