@@ -191,10 +191,10 @@ export const MiPerfil = () => {
                                 <span className="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full border border-blue-100">
                                     {formData.role}
                                 </span>
-                                <span className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
+                                {/* <span className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
                                     <Clock className="w-3.5 h-3.5" />
                                     Activo: {formData.lastActive}
-                                </span>
+                                </span> */}
                             </div>
                         </div>
                     </div>
