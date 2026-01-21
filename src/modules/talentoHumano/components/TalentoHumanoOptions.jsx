@@ -1,5 +1,5 @@
 import { FilePlus, Users, FileSignature } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../../router/routes.const';
 
 export const TALENTO_HUMANO_OPTIONS = [
@@ -10,14 +10,21 @@ export const TALENTO_HUMANO_OPTIONS = [
 
 export const TalentoHumanoOptions = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const options = TALENTO_HUMANO_OPTIONS;
+
+    const handleNavigation = (path) => {
+        if (location.pathname !== path) {
+            navigate(path);
+        }
+    };
 
     return (
         <div className="grid grid-cols-1 gap-4 p-4">
             {options.map((opt, idx) => (
                 <button
                     key={idx}
-                    onClick={() => navigate(opt.page)}
+                    onClick={() => handleNavigation(opt.page)}
                     className="flex items-center gap-4 p-4 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md hover:border-indigo-100 transition-all group text-left"
                 >
                     <div className={`p-3 rounded-lg ${opt.bg} ${opt.color} group-hover:scale-110 transition-transform`}>

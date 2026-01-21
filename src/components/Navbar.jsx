@@ -1,19 +1,28 @@
 import { Bell, LogOut, UserCircle } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { UserProfile } from './UserProfile';
+import { ROUTES } from '../router/routes.const';
 
 export const Navbar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+
     const handleLogout = () => {
         console.log('Logout');
         navigate('/login');
     };
 
+    const handleNavigation = (path) => {
+        if (location.pathname !== path) {
+            navigate(path);
+        }
+    };
+
     return (
         <nav className="h-20 w-full bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] px-6 md:px-8 flex items-center justify-between z-50 fixed top-0 left-0 transition-all duration-300">
             {/* Brand / Logo */}
-            <div className="flex items-center gap-4 group cursor-pointer" onClick={() => navigate('/dashboard')}>
+            <div className="flex items-center gap-4 group cursor-pointer" onClick={() => handleNavigation('/dashboard')}>
                 <div className="relative">
                     <div className="absolute -inset-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
                     <img
@@ -45,7 +54,7 @@ export const Navbar = () => {
 
                 <div className="flex items-center gap-4">
                     {/* User Profile Component */}
-                    <UserProfile name="Junior Arias" role="Administrador" />
+                    <UserProfile name="Junior Arias" role="Administrador" onClick={() => handleNavigation(ROUTES.MI_CUENTA.MI_PERFIL.path)} />
 
                     {/* Logout Button */}
                     <button

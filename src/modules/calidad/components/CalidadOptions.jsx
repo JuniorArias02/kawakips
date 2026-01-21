@@ -1,5 +1,5 @@
 import { ClipboardCheck, AlertTriangle, BarChart3, FileText, FilePlus, FileCheck, Trash2, List, Globe, PenTool, BookOpen } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../../router/routes.const';
 export const CALIDAD_OPTIONS = [
     { title: 'Tipos de Documento', icon: FileText, color: 'text-indigo-600', bg: 'bg-indigo-50', page: ROUTES.CALIDAD.TIPOS_DOCUMENTO.path },
@@ -15,14 +15,21 @@ export const CALIDAD_OPTIONS = [
 
 export const CalidadOptions = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const options = CALIDAD_OPTIONS;
+
+    const handleNavigation = (path) => {
+        if (location.pathname !== path) {
+            navigate(path);
+        }
+    };
 
     return (
         <div className="grid grid-cols-1 gap-4 p-4">
             {options.map((opt, idx) => (
                 <button
                     key={idx}
-                    onClick={() => navigate(opt.page)}
+                    onClick={() => handleNavigation(opt.page)}
                     className="flex items-center gap-4 p-4 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md hover:border-emerald-100 transition-all group text-left"
                 >
                     <div className={`p-3 rounded-lg ${opt.bg} ${opt.color} group-hover:scale-110 transition-transform`}>

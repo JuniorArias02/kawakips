@@ -3,6 +3,8 @@ import Layout from './layouts/Layout';
 import Login from './modules/auth/pages/Login';
 import Dashboard from './modules/dashboard/pages/Dashboard';
 import { moduleRoutes } from './router/maps';
+import { NotFound } from './components/NotFound';
+import { ProtectedRoute } from './components/ProtectedRoute';
 
 const router = createBrowserRouter([
     {
@@ -14,14 +16,23 @@ const router = createBrowserRouter([
         element: <Login />,
     },
     {
-        element: <Layout />,
+        element: <ProtectedRoute />,
         children: [
             {
-                path: '/dashboard',
-                element: <Dashboard />,
-            },
-            ...moduleRoutes
+                element: <Layout />,
+                children: [
+                    {
+                        path: '/dashboard',
+                        element: <Dashboard />,
+                    },
+                    ...moduleRoutes
+                ]
+            }
         ]
+    },
+    {
+        path: '*',
+        element: <NotFound />
     }
 ]);
 

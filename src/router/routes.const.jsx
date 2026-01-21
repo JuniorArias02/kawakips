@@ -13,8 +13,21 @@ import { ListadosUnicos } from '../modules/calidad/pages/ListadosUnicos';
 import { DocumentosExternos } from '../modules/calidad/pages/DocumentosExternos';
 import { DiligenciarFormato } from '../modules/calidad/pages/DiligenciarFormato';
 import { Definiciones } from '../modules/calidad/pages/Definiciones';
+//miCuenta
+import { MiPerfil } from '../modules/miCuenta/pages/MiPerfil';
+
+//configuracion
+import { TipoDocumento } from '../modules/configuracion/pages/TipoDocumento';
+import { TipoContrato } from '../modules/configuracion/pages/TipoContrato';
 
 export const ROUTES = {
+  MI_CUENTA: {
+    MI_PERFIL: {
+      path: '/miCuenta/mi-perfil',
+      title: 'Mi Perfil',
+      element: <MiPerfil />,
+    },
+  },
   TALENTO_HUMANO: {
     PERFIL_CARGO: {
       path: '/talentoHumano/perfiles-cargo',
@@ -106,6 +119,16 @@ export const ROUTES = {
       path: '/configuracion/cargos',
       title: 'Gestión de Cargos',
       element: <ConstructionPage title="Gestión de Cargos" />,
+    },
+    TIPO_DOCUMENTO: {
+      path: '/configuracion/tipo-documento',
+      title: 'Gestión de Tipo Documento',
+      element: <TipoDocumento title="Gestión de Tipo Documento" />,
+    },
+    TIPO_CONTRATO: {
+      path: '/configuracion/tipo-contrato',
+      title: 'Gestión de Tipo Contrato',
+      element: <TipoContrato title="Gestión de Cargos" />,
     },
   },
 };

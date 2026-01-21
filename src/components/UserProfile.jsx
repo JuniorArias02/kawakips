@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { UserCircle, ChevronDown } from 'lucide-react';
 
-export const UserProfile = ({ name = "Junior Arias", role = "Administrador" }) => {
+export const UserProfile = ({ name = "Junior Arias", role = "Administrador", onClick }) => {
     const [showInfo, setShowInfo] = useState(false);
     const timeoutRef = useRef(null);
 
@@ -32,6 +32,7 @@ export const UserProfile = ({ name = "Junior Arias", role = "Administrador" }) =
         <div
             className="flex items-center gap-2 group cursor-pointer"
             onMouseEnter={handleMouseEnter}
+            onClick={onClick}
         >
             {/* Avatar Circle - Always visible */}
             <div className="relative z-10 h-10 w-10 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white shadow-blue-200 shadow-lg ring-2 ring-white transition-transform duration-300 group-hover:scale-105">
