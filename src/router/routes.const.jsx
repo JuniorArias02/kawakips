@@ -19,6 +19,7 @@ import { MiPerfil } from '../modules/miCuenta/pages/MiPerfil';
 //configuracion
 import { TipoDocumento } from '../modules/configuracion/pages/TipoDocumento';
 import { TipoContrato } from '../modules/configuracion/pages/TipoContrato';
+import { Usuarios } from '../modules/configuracion/pages/Usuarios';
 
 export const ROUTES = {
   MI_CUENTA: {
@@ -98,7 +99,7 @@ export const ROUTES = {
     USUARIOS: {
       path: '/configuracion/usuarios',
       title: 'Gestión de Usuarios',
-      element: <ConstructionPage title="Gestión de Usuarios" />,
+      element: <Usuarios />,
     },
     PROCESOS: {
       path: '/configuracion/procesos',

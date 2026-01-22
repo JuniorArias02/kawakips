@@ -16,13 +16,10 @@ export const CreateTipoContrato = ({ isOpen, onClose, onSaved }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Simulación de guardado
         showAlert({
             message: 'Tipo de contrato creado correctamente',
             status: 'success'
         });
-
-        // Limpiar form
         setFormData({
             nombre: '',
             codigo: '',
