@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useBoard } from '../hooks/useBoard';
 import { ModuleCard } from '../components/ModuleCard';
 import { OptionSidebar } from '../components/OptionSidebar';
@@ -6,11 +6,12 @@ import { LayoutGrid, List } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { containerVariants, itemVariants } from '../utils/dashboardVariants';
 import { OPTIONS_MAP, DATA_MAP } from '../constants/dashboardMaps';
+import { useDashboardConfig } from '../../../providers/DashboardConfigProvider';
 
 const Dashboard = () => {
     const { cards, updatePosition, selectedModule, selectModule, closeSidebar } = useBoard();
     const containerRef = useRef(null);
-    const [viewMode, setViewMode] = useState('default'); // 'default' | 'menu'
+    const { viewMode, toggleViewMode } = useDashboardConfig();
 
     return (
         <div ref={containerRef} className="w-full h-[calc(100vh-80px)] relative overflow-hidden bg-slate-50">
@@ -25,7 +26,7 @@ const Dashboard = () => {
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    onClick={() => setViewMode(prev => prev === 'default' ? 'menu' : 'default')}
+                    onClick={toggleViewMode}
                     className="p-3 bg-white/80 backdrop-blur-md rounded-full shadow-lg hover:bg-white transition-all duration-300 border border-white/50 group"
                     title={viewMode === 'default' ? "Cambiar a vista de menú" : "Cambiar a vista libre"}
                 >

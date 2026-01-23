@@ -1,22 +1,28 @@
-{
-    "message": "Perfil actualizado correctamente",
+{   
+    "message": "",
     "object": {
-        "username": "jarias_admin",
-        "role": "Administrador",
-        "persona": {
-            "tipo_documento": "Cédula de Ciudadanía",
-            "numero_documento": "1.234.567.890",
-            "primer_nombre": "Junior",
-            "segundo_nombre": "Andrés",
-            "primer_apellido": "Arias",
-            "segundo_apellido": "Gómez",
-            "fecha_nacimiento": "1995-08-15",
-            "lugar_nacimiento": "Bogotá, D.C.",
-            "direccion_residencia": "Carrera 15 # 85 - 12, Apartamento 304",
-            "numero_telefono": "300 123 4567",
-            "fecha_creacion": "2024-01-01",
-            "fecha_modificacion": "2025-01-20"
+        "general": {
+            "cargo": "",
+            "jefeInmediato": "",
+            "version": "",
+            "fecha": ""
+        },
+        "asistenciales": [],
+        "domiciliaria": [],
+        "educacion": {
+            "nivel": "",
+            "titulo": "",
+            "puntaje": 0,
+            "minimo": 0
+        },
+        "formacion": [],
+        "habilidades": [],
+        "experiencia": {
+            "cargo": "",
+            "duracion": "",
+            "puntaje": 0,
+            "minimo": 0
         }
     },
-    "status": "200"
+    "status": ""
 }

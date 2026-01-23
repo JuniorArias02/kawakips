@@ -152,8 +152,8 @@ export const MiPerfil = () => {
 
                 {/* Main Profile Card */}
                 <div className="relative bg-white rounded-3xl p-8 shadow-sm border border-slate-100 overflow-hidden">
-                    <div className="absolute top-0 right-0 p-8 opacity-5">
-                        <User className="w-64 h-64" />
+                    <div className="absolute top-0 right-0 p-8 opacity-20">
+                        <User className="w-25 h-25" />
                     </div>
 
                     <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start md:items-center">

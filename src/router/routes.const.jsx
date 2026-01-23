@@ -3,6 +3,7 @@ import ConstructionPage from '../components/ConstructionPage';
 import { PerfilesCargos } from '../modules/talentoHumano/pages/PerfilesCargos';
 import { HojaVida } from '../modules/talentoHumano/pages/HojaVida';
 import { Organigrama } from '../modules/talentoHumano/pages/Organigrama';
+import { VerDetalleCargo } from '../modules/talentoHumano/pages/VerDetalleCargo';
 // calidad
 import { TipoDocumentos } from '../modules/calidad/pages/TipoDocumentos';
 import { SolicitarDocumento } from '../modules/calidad/pages/SolicitarDocumento';
@@ -44,6 +45,11 @@ export const ROUTES = {
       path: '/talentoHumano/organigrama',
       title: 'Organigrama',
       element: <Organigrama />,
+    },
+    VER_DETALLE: {
+      path: '/talentoHumano/perfiles-cargo/:id',
+      title: 'Detalle de Cargo',
+      element: <VerDetalleCargo />,
     },
   },
 

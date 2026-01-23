@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { ArrowLeft, Search, Settings, ChevronLeft, ChevronRight, Briefcase, Filter } from 'lucide-react';
+import { ArrowLeft, Search, Settings, ChevronLeft, ChevronRight, Briefcase, Filter, Eye, Pencil } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 // Generar 50 datos falsos
@@ -160,9 +160,21 @@ export const PerfilesCargos = () => {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <button className="text-indigo-600 hover:text-indigo-900 font-medium hover:underline">
-                                            Editar
-                                        </button>
+                                        <div className="flex items-center justify-end gap-2">
+                                            <button
+                                                onClick={() => navigate(`/talentoHumano/perfiles-cargo/${item.id}`)}
+                                                className="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors group relative"
+                                                title="Ver detalle"
+                                            >
+                                                <Eye className="w-5 h-5" />
+                                            </button>
+                                            <button
+                                                className="p-1.5 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors group relative"
+                                                title="Editar"
+                                            >
+                                                <Pencil className="w-5 h-5" />
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
